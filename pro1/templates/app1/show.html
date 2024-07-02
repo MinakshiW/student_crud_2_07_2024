@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Show</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Student Details</h1>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th>Student Roll No.</th>
+                <th>Student Name</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Marks</th>
+                <th>Profile Picture</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stu in obj %}
+            <tr>
+                <td>{{ stu.roll }}</td>
+                <td>{{ stu.name }}</td>
+                <td>{{ stu.dob }}</td>
+                <td>{{ stu.gender }}</td>
+                <td>{{ stu.marks }}</td>
+                <td><img src="{{ stu.profile_pic.url}}" height="150px" width="150px"></td>
+                <td>
+                    <a href="/a1/uv/{{stu.roll}}/"><button class="btn btn-success">Update</button></a>
+                    <a href="/a1/dv/{{stu.roll}}/"><button class="btn btn-warning">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
